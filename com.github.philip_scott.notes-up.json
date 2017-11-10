@@ -70,8 +70,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/elementary/granite/archive/0.4.1.tar.gz",
-					"sha256": "035a9b36ef73352ff8a76be06b876d9e2ea6633abb693fb67297d998c8d3a240"
+					"url": "https://github.com/elementary/granite/archive/0.5.tar.gz",
+					"sha256": "cc4905ae70fddeba3d2ded44bb642be77d419aa090251a7ab24c155b8616be06"
 				}
 			]
 		},
@@ -89,15 +89,24 @@
 			]
 		},
 		{
+			"name": "gtkspell",
+			"sources": [
+				{
+					"type": "archive",
+					"url": "https://sourceforge.net/projects/gtkspell/files/3.0.9/gtkspell3-3.0.9.tar.xz",
+					"sha256": "a4f4a4a2789f7499563e26d96b22d8085222ebe278da47d026b2de782b8b4d26"
+				}
+			]
+		},
+		{
 			"name": "notes-up",
 			"buildsystem": "cmake",
 			"config-opts": ["-Dnoele:BOOL=true"],
 			"sources": [
 				{
-					"type": "git",
-					"url": "https://github.com/Philip-Scott/Notes-up.git",
-					"branch": "1.4.4",
-					"commit": "8dd51ced91b0af97ef451160f2bb043994de8f6b"
+					"type": "archive",
+					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.4.7.tar.gz",
+					"sha256": "3b987e734cd94bdd61abc9958b7f19c32868d14e0fe612f09f16668e7b185e85"
 				}
 			]
 		}
