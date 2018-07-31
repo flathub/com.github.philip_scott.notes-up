@@ -1,9 +1,11 @@
 {
 	"app-id": "com.github.philip_scott.notes-up",
+	"base": "io.elementary.Loki.BaseApp",
+	"base-version": "stable",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.24",
 	"sdk": "org.gnome.Sdk",
-	"command": "notes-up",
+	"runtime-version": "3.28",
+	"command": "com.github.philip-scott.notes-up",
 	"rename-icon": "com.github.philip-scott.notes-up",
 	"rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
 	"rename-appdata-file": "com.github.philip-scott.notes-up.appdata.xml",
@@ -39,43 +41,6 @@
 	],
 	"modules": [
 		{
-			"name": "libgee",
-			"build-options": {
-				"env": {
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
-				}
-			},
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://github.com/GNOME/libgee/archive/0.20.0.tar.gz",
-					"sha256": "42fe6d651910cb8b720167f71c5255a1b7b1afc82fecd3f31e61f9602b3b1335"
-				}
-			]
-		},
-		{
-			"name": "granite",
-			"buildsystem": "cmake",
-			"config-opts": [
-				"-DCMAKE_BUILD_TYPE=Release",
-				"-DCMAKE_INSTALL_LIBDIR=/app/lib"
-			],
-			"build-options": {
-				"env": {
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
-				}
-			},
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://github.com/elementary/granite/archive/0.5.tar.gz",
-					"sha256": "cc4905ae70fddeba3d2ded44bb642be77d419aa090251a7ab24c155b8616be06"
-				}
-			]
-		},
-		{
 			"name": "gtksourceview",
 			"config-opts": [
 				"--disable-gtk-doc"
@@ -83,8 +48,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://git.gnome.org/browse/gtksourceview/snapshot/gtksourceview-3.24.3.tar.xz",
-					"sha256": "2bee47c2e564574138d417c4731be8d2ae441710ad544701fdc7008a6c3f05f2"
+					"url": "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.8.tar.xz",
+					"sha256": "1e9bb8ff190db705deb916dd23ff681f0e8803aec407bf0fd64c7e615ac436fe"
 				}
 			]
 		},
@@ -105,8 +70,12 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.4.7.tar.gz",
-					"sha256": "3b987e734cd94bdd61abc9958b7f19c32868d14e0fe612f09f16668e7b185e85"
+					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.5.2.tar.gz",
+					"sha256": "b9e254ec06ca1c5a6c1bb2ce3ed74d9becf21a9e3affd921684fdbc3bf090d59"
+				},
+                {
+                    "type": "patch",
+                    "path": "elementary-theme.patch"
 				}
 			]
 		}
