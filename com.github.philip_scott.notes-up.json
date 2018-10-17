@@ -1,10 +1,10 @@
 {
 	"app-id": "com.github.philip_scott.notes-up",
-	"base": "io.elementary.Loki.BaseApp",
-	"base-version": "stable",
+	"base": "io.elementary.BaseApp",
+	"base-version": "juno",
 	"runtime": "org.gnome.Platform",
 	"sdk": "org.gnome.Sdk",
-	"runtime-version": "3.28",
+	"runtime-version": "3.30",
 	"command": "com.github.philip-scott.notes-up",
 	"rename-icon": "com.github.philip-scott.notes-up",
 	"rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
@@ -25,13 +25,7 @@
 		"--talk-name=ca.desrt.dconf",
 		"--env=DCONF_USER_CONFIG_DIR=.config/dconf"
 	],
-	"build-options": {
-		"cflags": "-O2",
-		"cxxflags": "-O2"
-	},
 	"cleanup": [
-		"/bin/granite-demo",
-		"/share/applications/granite-demo.desktop",
 		"/include",
 		"/lib/pkgconfig",
 		"/share/vala",
@@ -70,8 +64,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.5.2.tar.gz",
-					"sha256": "b9e254ec06ca1c5a6c1bb2ce3ed74d9becf21a9e3affd921684fdbc3bf090d59"
+					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.6.1.tar.gz",
+					"sha256": "f7c7d943eadb545ab8360afd94c8722e8a90105757c8dc9d467e225ff750932c"
 				},
                 {
                     "type": "patch",
