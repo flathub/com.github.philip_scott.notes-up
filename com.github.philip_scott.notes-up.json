@@ -4,7 +4,7 @@
 	"base-version": "juno",
 	"runtime": "org.gnome.Platform",
 	"sdk": "org.gnome.Sdk",
-	"runtime-version": "3.30",
+	"runtime-version": "3.32",
 	"command": "com.github.philip-scott.notes-up",
 	"rename-icon": "com.github.philip-scott.notes-up",
 	"rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
@@ -47,45 +47,65 @@
 				}
 			]
 		},
-	    	{
-		      "name": "enchant",
-		      "cleanup": [
-			"/include",
-			"/lib/pkgconfig",
-			"*.la",
-			"/share"
-		      ],
-		      "sources": [
-			{
-			  "type": "archive",
-			  "url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-			  "sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
-			}
-		      ]
-	    	},
+		{
+			"name": "enchant",
+			"cleanup": [
+				"/share"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
+					"sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+				}
+			]
+		},
 		{
 			"name": "gtkspell",
 			"sources": [
 				{
 					"type": "archive",
-				  	"url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
-				  	"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+					"url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
+					"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+				}
+			]
+		},
+		{
+			"name": "discount",
+			"config-opts": [
+				"--shared",
+				"--with-fenced-code",
+				"--pkg-config"
+			],
+			"cleanup": [
+				"/bin"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.4.tar.bz2",
+					"sha256": "74fd1e3cc2b4eacf7325d3fd89df38b589db60d5dd0f4f14a0115f7da5e230a5"
+				},
+				{
+					"type": "shell",
+					"commands": [
+						"ln -s configure.sh configure"
+					]
 				}
 			]
 		},
 		{
 			"name": "notes-up",
-			"buildsystem": "cmake",
-			"config-opts": ["-Dnoele:BOOL=true"],
+			"buildsystem": "cmake-ninja",
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.6.1.tar.gz",
-					"sha256": "f7c7d943eadb545ab8360afd94c8722e8a90105757c8dc9d467e225ff750932c"
+					"url": "https://github.com/Philip-Scott/Notes-up/archive/2.0.0.tar.gz",
+					"sha256": "66c80f593c77b80e6d57b455cb68f4b2132b386c6d270f878ba7d2dc739d5f34"
 				},
-                {
-                    "type": "patch",
-                    "path": "elementary-theme.patch"
+				{
+					"type": "patch",
+					"path": "elementary-theme.patch"
 				}
 			]
 		}
