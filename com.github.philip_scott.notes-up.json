@@ -47,29 +47,29 @@
 				}
 			]
 		},
-	    	{
-		      "name": "enchant",
-		      "cleanup": [
-			"/include",
-			"/lib/pkgconfig",
-			"*.la",
-			"/share"
-		      ],
-		      "sources": [
-			{
-			  "type": "archive",
-			  "url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-			  "sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
-			}
-		      ]
-	    	},
+		{
+			"name": "enchant",
+			"cleanup": [
+				"/include",
+				"/lib/pkgconfig",
+				"*.la",
+				"/share"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
+					"sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+				}
+			]
+		},
 		{
 			"name": "gtkspell",
 			"sources": [
 				{
 					"type": "archive",
-				  	"url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
-				  	"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+					"url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
+					"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
 				}
 			]
 		},
@@ -83,9 +83,9 @@
 					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.6.1.tar.gz",
 					"sha256": "f7c7d943eadb545ab8360afd94c8722e8a90105757c8dc9d467e225ff750932c"
 				},
-                {
-                    "type": "patch",
-                    "path": "elementary-theme.patch"
+				{
+					"type": "patch",
+					"path": "elementary-theme.patch"
 				}
 			]
 		}
