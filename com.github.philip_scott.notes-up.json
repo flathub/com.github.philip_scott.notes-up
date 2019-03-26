@@ -96,13 +96,12 @@
 		},
 		{
 			"name": "notes-up",
-			"buildsystem": "cmake",
-			"config-opts": ["-Dnoele:BOOL=true"],
+			"buildsystem": "cmake-ninja",
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/Philip-Scott/Notes-up/archive/1.6.1.tar.gz",
-					"sha256": "f7c7d943eadb545ab8360afd94c8722e8a90105757c8dc9d467e225ff750932c"
+					"url": "https://github.com/Philip-Scott/Notes-up/archive/2.0.0.tar.gz",
+					"sha256": "66c80f593c77b80e6d57b455cb68f4b2132b386c6d270f878ba7d2dc739d5f34"
 				},
 				{
 					"type": "patch",
