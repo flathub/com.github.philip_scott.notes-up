@@ -50,9 +50,6 @@
 		{
 			"name": "enchant",
 			"cleanup": [
-				"/include",
-				"/lib/pkgconfig",
-				"*.la",
 				"/share"
 			],
 			"sources": [
@@ -70,6 +67,30 @@
 					"type": "archive",
 					"url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
 					"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+				}
+			]
+		},
+		{
+			"name": "discount",
+			"config-opts": [
+				"--shared",
+				"--with-fenced-code",
+				"--pkg-config"
+			],
+			"cleanup": [
+				"/bin"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.4.tar.bz2",
+					"sha256": "74fd1e3cc2b4eacf7325d3fd89df38b589db60d5dd0f4f14a0115f7da5e230a5"
+				},
+				{
+					"type": "shell",
+					"commands": [
+						"ln -s configure.sh configure"
+					]
 				}
 			]
 		},
