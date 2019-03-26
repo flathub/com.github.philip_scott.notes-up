@@ -4,7 +4,7 @@
 	"base-version": "juno",
 	"runtime": "org.gnome.Platform",
 	"sdk": "org.gnome.Sdk",
-	"runtime-version": "3.30",
+	"runtime-version": "3.32",
 	"command": "com.github.philip-scott.notes-up",
 	"rename-icon": "com.github.philip-scott.notes-up",
 	"rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
