@@ -18,7 +18,6 @@
 		"--own-name=com.github.philip-scott.notes-up",
 		"--talk-name=org.gtk.vfs",
 		"--talk-name=org.gtk.vfs.*",
-		"--talk-name=org.gnome.SettingsDaemon",
 
 		"--filesystem=xdg-run/dconf",
 		"--filesystem=xdg-config/dconf:ro",
