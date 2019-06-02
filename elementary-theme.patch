@@ -2,11 +2,12 @@ diff --git a/src/Application.vala b/src/Application.vala
 index 9f3a03f..f204b58 100644
 --- a/src/Application.vala
 +++ b/src/Application.vala
-@@ -106,6 +106,7 @@ public class ENotes.Application : Granite.Application {
+@@ -106,6 +106,8 @@ public class ENotes.Application : Granite.Application {
              }
  
              window = new ENotes.Window (this);
-+            Gtk.Settings.get_default().set_property("gtk-theme-name", "elementary");
++           Gtk.Settings.get_default().set_property("gtk-theme-name", "elementary");
++           Gtk.Settings.get_default().set_property("gtk-icon-theme-name", "elementary");
              this.add_window (window);
  
              running = true;

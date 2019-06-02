@@ -1,0 +1,12 @@
+--- a/data/com.github.philip-scott.notes-up.appdata.xml	2019-05-06 06:04:28.000000000 +0200
++++ b/data/com.github.philip-scott.notes-up.appdata.xml	2019-06-02 12:26:53.248844445 +0200
+@@ -1,7 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!-- Copyright (c) 2019 Felipe Escoto (https://github.com/Philip-Scott/Notes-up) -->
+ <component type="desktop">
+-  <id>com.github.philip-scott.notes-up</id>
++  <id>com.github.philip_scott.notes-up</id>
++  <launchable type="desktop-id">com.github.philip_scott.notes-up.desktop</launchable>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-3.0+</project_license>
+   <name>Notes-Up</name>
