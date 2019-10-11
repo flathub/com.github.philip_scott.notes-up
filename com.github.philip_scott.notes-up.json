@@ -1,28 +1,24 @@
 {
 	"app-id": "com.github.philip_scott.notes-up",
 	"base": "io.elementary.BaseApp",
-	"base-version": "juno",
+	"base-version": "juno-19.08",
 	"runtime": "org.gnome.Platform",
+	"runtime-version": "3.34",
 	"sdk": "org.gnome.Sdk",
-	"runtime-version": "3.32",
 	"command": "com.github.philip-scott.notes-up",
+	"copy-icon": true,
 	"rename-icon": "com.github.philip-scott.notes-up",
 	"rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
 	"rename-appdata-file": "com.github.philip-scott.notes-up.appdata.xml",
 	"finish-args": [
 		"--filesystem=home",
-
+		"--device=dri",
 		"--socket=wayland",
 		"--socket=x11",
 
 		"--own-name=com.github.philip-scott.notes-up",
 		"--talk-name=org.gtk.vfs",
-		"--talk-name=org.gtk.vfs.*",
-
-		"--filesystem=xdg-run/dconf",
-		"--filesystem=xdg-config/dconf:ro",
-		"--talk-name=ca.desrt.dconf",
-		"--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+		"--talk-name=org.gtk.vfs.*"
 	],
 	"cleanup": [
 		"/include",
@@ -51,13 +47,15 @@
 				"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
 			}],
 			"modules": [{
-				"name": "enchant",
-				"sources": [{
-					"type": "archive",
-					"url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-					"sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
-				}]
-			}]
+					"name": "enchant",
+					"sources": [{
+						"type": "archive",
+						"url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
+						"sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+					}]
+				},
+				"shared-modules/intltool/intltool-0.51.json"
+			]
 		},
 		{
 			"name": "discount",
