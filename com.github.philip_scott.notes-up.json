@@ -3,7 +3,7 @@
 	"base": "io.elementary.BaseApp",
 	"base-version": "juno-19.08",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.34",
+	"runtime-version": "3.36",
 	"sdk": "org.gnome.Sdk",
 	"command": "com.github.philip-scott.notes-up",
 	"copy-icon": true,
@@ -75,6 +75,9 @@
 			"name": "notes-up",
 			"buildsystem": "cmake-ninja",
 			"config-opts": ["-Dnoele:BOOL=true"],
+			"post-install": [
+				"install -Dm644 /app/share/icons/hicolor/64x64/apps/com.github.philip-scott.notes-up.svg  -t /app/share/icons/hicolor/128x128/apps/"	
+			],
 			"sources": [{
 					"type": "archive",
 					"url": "https://github.com/Philip-Scott/Notes-up/archive/2.0.2.tar.gz",
