@@ -1,9 +1,9 @@
 {
 	"app-id": "com.github.philip_scott.notes-up",
 	"base": "io.elementary.BaseApp",
-	"base-version": "juno-19.08",
+	"base-version": "juno-20.08",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.36",
+	"runtime-version": "40",
 	"sdk": "org.gnome.Sdk",
 	"command": "com.github.philip-scott.notes-up",
 	"copy-icon": true,
@@ -67,8 +67,8 @@
 			],
 			"sources": [{
 				"type": "archive",
-				"url": "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.4.tar.bz2",
-				"sha256": "74fd1e3cc2b4eacf7325d3fd89df38b589db60d5dd0f4f14a0115f7da5e230a5"
+				"url": "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2",
+				"sha256": "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
 			}]
 		},
 		{
@@ -90,7 +90,11 @@
 				{
 					"type": "patch",
 					"path": "appdata.patch"
-				}
+				},
+                                {
+                                        "type": "patch",
+                                        "path": "add-size-to-chaarray.patch"
+                                }
 			]
 		}
 	]
