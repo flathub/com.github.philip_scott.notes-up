@@ -1,100 +1,145 @@
 {
-	"app-id": "com.github.philip_scott.notes-up",
-	"base": "io.elementary.BaseApp",
-	"base-version": "juno-21.08",
-	"runtime": "org.gnome.Platform",
-	"runtime-version": "42",
-	"sdk": "org.gnome.Sdk",
-	"command": "com.github.philip-scott.notes-up",
-	"copy-icon": true,
-	"rename-icon": "com.github.philip-scott.notes-up",
-	"rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
-	"rename-appdata-file": "com.github.philip-scott.notes-up.appdata.xml",
-	"finish-args": [
-		"--filesystem=home",
-		"--device=dri",
-		"--socket=wayland",
-		"--socket=x11",
-
-		"--own-name=com.github.philip-scott.notes-up",
-		"--talk-name=org.gtk.vfs.*"
-	],
-	"cleanup": [
-		"/include",
-		"/lib/pkgconfig",
-		"/share/vala",
-		"/man",
-		"*.a",
-		"*.la"
-	],
-	"modules": [{
-			"name": "gtksourceview",
-			"config-opts": [
-				"--disable-gtk-doc"
-			],
-			"sources": [{
-				"type": "archive",
-				"url": "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz",
-				"sha256": "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
-			}]
-		},
-		{
-			"name": "gtkspell",
-			"sources": [{
-				"type": "archive",
-				"url": "https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz",
-				"sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
-			}],
-			"modules": [{
-					"name": "enchant",
-					"sources": [{
-						"type": "archive",
-						"url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-						"sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
-					}]
-				},
-				"shared-modules/intltool/intltool-0.51.json"
-			]
-		},
-		{
-			"name": "discount",
-			"buildsystem": "simple",
-			"build-commands": [
-				"./configure.sh --prefix=/app --enable-all-features --with-fenced-code --shared",
-				"sed -e 's|/sbin/ldconfig|/sbin/ldconfig -n|' -i librarian.sh",
-				"make install"
-			],
-			"sources": [{
-				"type": "archive",
-				"url": "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2",
-				"sha256": "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
-			}]
-		},
-		{
-			"name": "notes-up",
-			"buildsystem": "cmake-ninja",
-			"config-opts": ["-Dnoele:BOOL=true"],
-			"post-install": [
-				"install -Dm644 /app/share/icons/hicolor/64x64/apps/com.github.philip-scott.notes-up.svg  -t /app/share/icons/hicolor/128x128/apps/"	
-			],
-			"sources": [{
-					"type": "archive",
-					"url": "https://github.com/Philip-Scott/Notes-up/archive/2.0.2.tar.gz",
-					"sha256": "35eb1df71034a118e66e6e00f5394c68423cfba7ceac035bde156d77da933b17"
-				},
-				{
-					"type": "patch",
-					"path": "elementary-theme.patch"
-				},
-				{
-					"type": "patch",
-					"path": "appdata.patch"
-				},
-                                {
-                                        "type": "patch",
-                                        "path": "add-size-to-chaarray.patch"
-                                }
-			]
-		}
-	]
+    "app-id": "com.github.philip_scott.notes-up",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "25.08",
+    "base": "io.elementary.BaseApp",
+    "base-version": "circe-25.08",
+    "sdk": "org.freedesktop.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.vala"
+    ],
+    "build-options": {
+        "prepend-path": "/usr/lib/sdk/vala/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala/lib",
+        "prepend-pkg-config-path": "/usr/lib/sdk/vala/lib/pkgconfig",
+        "prepend-pkg-config-path": "/usr/lib/x86_64-linux-gnu/pkgconfig"
+    },
+    "command": "com.github.philip-scott.notes-up",
+    "copy-icon": true,
+    "rename-icon": "com.github.philip-scott.notes-up",
+    "rename-desktop-file": "com.github.philip-scott.notes-up.desktop",
+    "rename-appdata-file": "com.github.philip-scott.notes-up.appdata.xml",
+    "finish-args": [
+        "--filesystem=home",
+        "--device=dri",
+        "--socket=wayland",
+        "--socket=x11",
+        "--own-name=com.github.philip-scott.notes-up",
+        "--talk-name=org.gtk.vfs.*"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/vala",
+        "/man",
+        "*.a",
+        "*.la"
+    ],
+    "modules": [
+        "shared-modules/intltool/intltool-0.51.json",
+        {
+            "name": "gtksourceview",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dvapi=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.4.tar.xz",
+                    "sha256": "7ec9d18fb283d1f84a3a3eff3b7a72b09a10c9c006597b3fbabbb5958420a87d"
+                }
+            ]
+        },
+        {
+            "name": "libgee",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz",
+                    "sha256": "189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee"
+                }
+            ]
+        },
+        {
+            "name": "discount",
+            "buildsystem": "simple",
+            "build-options": {
+                "cflags": "-Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration"
+            },
+            "build-commands": [
+                "./configure.sh --prefix=/app --enable-all-features --with-fenced-code --shared",
+                "sed -e 's|/sbin/ldconfig|/sbin/ldconfig -n|' -i librarian.sh",
+                "make install"
+            ],
+            "sources": [{
+                "type": "archive",
+                "url": "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2",
+                "sha256": "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
+            }]
+        },
+        {
+            "name": "enchant",
+            "sources": [{
+                "type": "archive",
+                "url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
+                "sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+            }]
+        },
+        {
+            "name": "gtkspell",
+            "config-opts": [
+                "--disable-gtk-doc-html"
+            ],
+            "cleanup": [
+                "/share/gtk-doc"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/gtkspell/gtkspell3-3.0.10.tar.xz",
+                    "sha256": "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+                }
+            ]
+        },
+        {
+            "name": "webkit2gtk-4.0",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DPORT=GTK",
+                "-DENABLE_WEBDRIVER=OFF",
+                "-DUSE_LIBBACKTRACE=OFF",
+                "-DUSE_GTK4=OFF",
+                "-DENABLE_BUBBLEWRAP_SANDBOX=OFF",
+                "-DENABLE_DOCUMENTATION=OFF",
+                "-DUSE_SOUP2=ON",
+                "-DENABLE_MINIBROWSER=OFF",
+                "-DUSE_LIBSECRET=OFF",
+                "-DENABLE_GAMEPAD=OFF",
+                "-DUSE_JPEGXL=OFF",
+                "-DUSE_WOFF2=OFF",
+                "-DUSE_AVIF=OFF",
+                "-DENABLE_SPELLCHECK=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://webkitgtk.org/releases/webkitgtk-2.44.0.tar.xz",
+                    "sha256": "c66530e41ba59b1edba4ee89ef20b2188e273bed0497e95084729e3cfbe30c87"
+                }
+            ]
+        },
+        {
+            "name": "notes-up",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/Philip-Scott/Notes-up.git",
+                    "commit": "310ce5c43288bf5d08093a9ce407a6818f0076ae"
+                }
+            ]
+        }
+    ]
 }

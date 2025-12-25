@@ -1,0 +1,25 @@
+From 0a23cf94d88f4c8c6196eb1be0933ecee87931d7 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Thu, 25 Dec 2025 18:25:07 +0300
+Subject: [PATCH] Fix webkitgtk version
+
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index e96a615..644c5c9 100644
+--- a/meson.build
++++ b/meson.build
+@@ -25,7 +25,7 @@ executable(
+         dependency('gee-0.8'),
+         dependency('gtksourceview-4'),
+         dependency('gtk+-3.0'),
+-        dependency('webkit2gtk-4.0'),
++        dependency('webkit2gtk-4.1'),
+         dependency('sqlite3', version : '>=3.5.9'),
+         dependency('gtkspell3-3.0'),
+         dependency('libmarkdown')
+--
+libgit2 1.7.2
+
