@@ -21,9 +21,10 @@
     "rename-appdata-file": "com.github.philip-scott.notes-up.appdata.xml",
     "finish-args": [
         "--filesystem=home",
+        "--share=ipc",
         "--device=dri",
         "--socket=wayland",
-        "--socket=x11",
+        "--socket=fallback-x11",
         "--own-name=com.github.philip-scott.notes-up",
         "--talk-name=org.gtk.vfs.*"
     ],
