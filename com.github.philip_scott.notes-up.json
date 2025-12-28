@@ -14,8 +14,8 @@
 		"--filesystem=home",
 		"--device=dri",
 		"--socket=wayland",
+		"--share=ipc",
 		"--socket=x11",
-
 		"--own-name=com.github.philip-scott.notes-up",
 		"--talk-name=org.gtk.vfs.*"
 	],
@@ -74,9 +74,6 @@
 			"name": "notes-up",
 			"buildsystem": "cmake-ninja",
 			"config-opts": ["-Dnoele:BOOL=true"],
-			"post-install": [
-				"install -Dm644 /app/share/icons/hicolor/64x64/apps/com.github.philip-scott.notes-up.svg  -t /app/share/icons/hicolor/128x128/apps/"	
-			],
 			"sources": [{
 					"type": "archive",
 					"url": "https://github.com/Philip-Scott/Notes-up/archive/2.0.2.tar.gz",
@@ -90,10 +87,15 @@
 					"type": "patch",
 					"path": "appdata.patch"
 				},
-                                {
-                                        "type": "patch",
-                                        "path": "add-size-to-chaarray.patch"
-                                }
+				{
+					"type": "patch",
+					"path": "add-size-to-chaarray.patch"
+				}
+			],
+			"post-install": [
+				"mkdir -p /app/share/icons/hicolor/scalable/apps",
+				"mv /app/share/icons/hicolor/64x64/apps/com.github.philip-scott.notes-up.svg /app/share/icons/hicolor/scalable/apps/com.github.philip-scott.notes-up.svg",
+				"find /app/share/icons/hicolor -type f -not -path \"*scalable*\" -not -path \"*actions*\" -name \"*.svg\" -delete"
 			]
 		}
 	]
